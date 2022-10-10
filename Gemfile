@@ -18,9 +18,21 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
 
+# My additional gems 
+gem 'bcrypt', '~> 3.1.7'
+gem 'active_model_serializers'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
+
+
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  #my additional dev gems
+  gem 'awesome_print', '~> 1.9', '>= 1.9.2'
+  gem 'pry', '~> 0.14.1'
+
 end
 
 group :development do
