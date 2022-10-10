@@ -1,0 +1,9 @@
+.form-container{
+    /* margin-top: 20px; */
+    min-height: 70vh;
+    background-color: #2A2748;
+    width: 60vw;
+    max-width: 600px;
+    min-width: 400px;
+    margin: 60px auto
+}

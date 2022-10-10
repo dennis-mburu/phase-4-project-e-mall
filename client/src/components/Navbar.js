@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 
-function Navbar() {
+function Navbar({user}) {
   return (
     <nav className="flex items-center justify-between flex-wrap bg-black p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -23,10 +23,11 @@ function Navbar() {
         <Link to="/products" className=" text-teal-200 hover:text-white mr-5">
           Products
         </Link>
-        <Link to="/products" className="text-teal-200 hover:text-white mr-5">
+        {user ?  "Logout" : <Link to="/login" className="text-teal-200 hover:text-white mr-5">
           <FaUserCircle className="inline mr-1 mt-0"/>
           Login/Register
-        </Link>
+        </Link> }
+
       </div>
     </nav>
   );
