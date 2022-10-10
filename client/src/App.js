@@ -8,15 +8,17 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="App">
+    <><div className="min-h-[92vh] bg-my-grey-bg text-white">
 
       <Navbar />
       <Routes>
         <Route path='/products' element={<Products />}/>
       </Routes>
-      <Footer />
 
     </div>
+    <Footer/>
+    </>
+    
   );
 }
 
