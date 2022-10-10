@@ -5,6 +5,7 @@ import Products from "./components/Products";
 import Footer from "./components/Footer";
 import { useState } from "react";
 import LoginForm from "./components/LoginForm";
+import Product from "./components/Product";
 
 
 
@@ -18,6 +19,8 @@ function App() {
       <Routes>
         <Route path='/products' element={<Products />}/>
         <Route path='/login' element={<LoginForm />}/>
+        <Route path='/view_product/:id' element={<Product />}/>
+        
       </Routes>
 
     </div>

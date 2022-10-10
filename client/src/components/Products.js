@@ -37,7 +37,7 @@ function Products() {
 
               </div>
               <div className="flex justify-center" >
-              <button className=" bg-teal-200 hover:bg-blue-600 mt-6  mx-auto text-black font-medium py-2 px-4 rounded-full" onClick={() => navigate('/product')}>
+              <button className=" bg-teal-200 hover:bg-blue-600 mt-6  mx-auto text-black font-medium py-2 px-4 rounded-full" onClick={() => navigate(`/view_product/${product.id}`)}>
                   Explore Product
                 </button>
               </div>
