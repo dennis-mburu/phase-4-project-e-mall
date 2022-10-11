@@ -19,18 +19,18 @@ function Products() {
       </h1>
       <div className="flex flex-wrap gap-8 justify-evenly  p-4">
         {products.map((product) => (
-          <div class="max-w-sm rounded overflow-hidden shadow-lg bg-slate-700">
+          <div className="max-w-sm rounded overflow-hidden shadow-lg bg-slate-700">
             <img
-              class="w-full h-80 object-cover"
+              className="w-full h-80 object-cover"
               src={product.image_url}
               alt="Product"
             ></img>
-            <div class="px-6 py-4">
-              <div class="font-medium text-xl mb-2 text-center">
+            <div className="px-6 py-4">
+              <div className="font-medium text-xl mb-2 text-center">
                 {product.title}
               </div>
               <div className="w-9/12 mx-auto">
-                <p class="text-base">
+                <p className="text-base">
                   <span className="font-medium">Price: </span>
                   <span className="float-right">Ksh. {product.price}</span>
                 </p>

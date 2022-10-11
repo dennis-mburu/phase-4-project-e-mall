@@ -47,26 +47,26 @@ function Product() {
           <div className="w-7/12 mx-auto">
             <p class="text-base">
               <span className="font-medium">Name: </span>
-              <span className="float-right text-neutral-400">{product.vendor["username"]}</span>
+              <span className="float-right text-neutral-400">{product.username}</span>
             </p>
           </div>
           <div className="w-7/12 mx-auto">
             <p class="text-base">
               <span className="font-medium">Phone: </span>
-              <span className="float-right text-neutral-400">{product.vendor["phone"]}</span>
+              <span className="float-right text-neutral-400">+{product.phone}</span>
             </p>
           </div>
           <div className="w-7/12 mx-auto">
             <p class="text-base">
               <span className="font-medium">Email: </span>
-              <span className="float-right text-neutral-400">{product.vendor["email"]}</span>
+              <span className="float-right text-neutral-400">{product.email}</span>
             </p>
           </div>
           <h1 className="text-center p-3  text-white text-2xl">
             Physical Store Address:
           </h1>
           <p className="text-center text-neutral-400 text-xl">
-            {product.vendor["store_address"]}
+            {product.address}
           </p>
         </div>
       </div>
