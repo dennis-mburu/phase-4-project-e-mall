@@ -23,7 +23,7 @@ function Products() {
             <img
               class="w-full h-80 object-cover"
               src={product.image_url}
-              alt="Sunset in the mountains"
+              alt="Product"
             ></img>
             <div class="px-6 py-4">
               <div class="font-medium text-xl mb-2 text-center">
