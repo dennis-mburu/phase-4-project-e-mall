@@ -2,7 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 
-function Navbar({user}) {
+function Navbar({user, setUser}) {
+
+  function handleCustomerLogOut(){
+    fetch("/api/customer_logout", {
+      method: "DELETE"
+    }).then(r => {
+      if (r.ok) {
+        setUser(null)
+      }
+    })
+  }
   return (
     <nav className="flex items-center justify-between flex-wrap bg-black p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -23,7 +33,7 @@ function Navbar({user}) {
         <Link to="/products" className=" text-teal-200 hover:text-white mr-5">
           Products
         </Link>
-        {user ?  "Logout" : <Link to="/login" className="text-teal-200 hover:text-white mr-5">
+        {user ?  <button onClick={handleCustomerLogOut}>logout</button> : <Link to="/login" className="text-teal-200 hover:text-white mr-5">
           <FaUserCircle className="inline mr-1 mt-0"/>
           Login/Register
         </Link> }

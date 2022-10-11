@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
  
   namespace :api do
+
     resources :orders
     resources :products
-    resources :customers
+    # resources :customers
     resources :vendors
+
+
+    post "/customer_login", to: "customer_sessions#create"
+    delete "/customer_logout", to: "customer_sessions#destroy"
+    get "/customer_auth", to: "customers#show"
 
   end
 
