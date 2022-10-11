@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function Navbar({user, setUser}) {
+  const navigate = useNavigate()
 
   function handleCustomerLogOut(){
     fetch("/api/customer_logout", {
@@ -10,6 +12,7 @@ function Navbar({user, setUser}) {
     }).then(r => {
       if (r.ok) {
         setUser(null)
+        navigate("/")
       }
     })
   }
@@ -33,7 +36,7 @@ function Navbar({user, setUser}) {
         <Link to="/products" className=" text-teal-200 hover:text-white mr-5">
           Products
         </Link>
-        {user ?  <button onClick={handleCustomerLogOut}>logout</button> : <Link to="/login" className="text-teal-200 hover:text-white mr-5">
+        {user ?  <button className="text-teal-200 hover:text-white mr-5" onClick={handleCustomerLogOut}>logout</button> : <Link to="/login" className="text-teal-200 hover:text-white mr-5">
           <FaUserCircle className="inline mr-1 mt-0"/>
           Login/Register
         </Link> }

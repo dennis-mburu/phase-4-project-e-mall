@@ -22,7 +22,7 @@ function App() {
 
   
   return (
-    <><div className="min-h-[92vh] bg-my-grey-bg text-white">
+    <><div className="min-h-[93vh] bg-my-grey-bg text-white">
 
       <Navbar user={user} setUser={setUser}/>
       <Routes>

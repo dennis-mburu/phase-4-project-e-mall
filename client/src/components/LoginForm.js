@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./LoginForm.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function LoginForm({ setUser }) {
+  const navigate =useNavigate()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -20,7 +22,10 @@ function LoginForm({ setUser }) {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          setUser(user)
+          navigate("/products")
+        });
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -69,6 +74,9 @@ function LoginForm({ setUser }) {
         >
           Sign Up here
         </Link>
+          {errors.map(error => {
+            return <h1 key={error} className="text-red-500 text-center mt-3">{error}!</h1>
+          })}
       </form>
     </div>
   );
