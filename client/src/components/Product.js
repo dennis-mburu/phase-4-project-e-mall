@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./product.css";
+import { useNavigate } from "react-router-dom";
 
 function Product() {
+  const [errors, setErrors] = useState([]);
+  const navigate = useNavigate();
   const params = useParams();
   const [product, setProduct] = useState({});
   const { id } = params;
@@ -11,9 +14,27 @@ function Product() {
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
-        console.log(data);
+        // console.log(data);
       });
   }, []);
+
+  function handleOrderClick() {
+    fetch("/api/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ product_id: id }),
+    }).then((r) => {
+      if (r.ok) {
+        alert("Product Added To Cart");
+        navigate("/cart");
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  }
+  // console.log(errors);
 
   return (
     <>
@@ -28,6 +49,21 @@ function Product() {
             alt="product"
             src={product.image_url}
           ></img>
+          <div className="flex justify-center">
+            <button
+              className=" bg-teal-200 hover:bg-blue-600 mt-6  mx-auto text-black font-medium py-2 px-4 rounded-full"
+              onClick={handleOrderClick}
+            >
+              Add to Cart
+            </button>
+          </div>
+          {errors.map((error) => {
+            return (
+              <h1 key={error} className="text-red-500 text-center mt-3 text-xl">
+                {error}
+              </h1>
+            );
+          })}
         </div>
         <div className="w-3/5 cont-right">
           <h1 className="text-center p-3  text-white text-2xl">DESCRIPTION:</h1>
@@ -47,19 +83,25 @@ function Product() {
           <div className="w-7/12 mx-auto">
             <p class="text-base">
               <span className="font-medium">Name: </span>
-              <span className="float-right text-neutral-400">{product.username}</span>
+              <span className="float-right text-neutral-400">
+                {product.username}
+              </span>
             </p>
           </div>
           <div className="w-7/12 mx-auto">
             <p class="text-base">
               <span className="font-medium">Phone: </span>
-              <span className="float-right text-neutral-400">+{product.phone}</span>
+              <span className="float-right text-neutral-400">
+                +{product.phone}
+              </span>
             </p>
           </div>
           <div className="w-7/12 mx-auto">
             <p class="text-base">
               <span className="font-medium">Email: </span>
-              <span className="float-right text-neutral-400">{product.email}</span>
+              <span className="float-right text-neutral-400">
+                {product.email}
+              </span>
             </p>
           </div>
           <h1 className="text-center p-3  text-white text-2xl">
