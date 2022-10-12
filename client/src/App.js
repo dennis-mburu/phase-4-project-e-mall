@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import { useEffect, useState } from "react";
 import LoginForm from "./components/LoginForm";
 import Product from "./components/Product";
+import Cart from "./components/Cart";
 
 
 
@@ -29,6 +30,7 @@ function App() {
         <Route path='/products' element={<Products />}/>
         <Route path='/login' element={<LoginForm setUser={setUser}/>}/>
         <Route path='/view_product/:id' element={<Product />}/>
+        <Route path='/cart' element={<Cart />}/>
         
       </Routes>
 
