@@ -61,9 +61,9 @@ function Navbar({ user, setUser }) {
           </button>
           
         ) : (
-          <Link to="/login" className="text-teal-200 hover:text-white mr-5">
+          <Link to="/customer_login" className="text-teal-200 hover:text-white mr-5">
             <FaUserCircle className="inline mr-1 mt-0" />
-            Login/Register
+            Customer Login
           </Link>
         )}
       </div>

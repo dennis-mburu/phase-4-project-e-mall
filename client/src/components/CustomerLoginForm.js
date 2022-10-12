@@ -36,7 +36,7 @@ function LoginForm({ setUser }) {
 
   return (
     <div className="form-container">
-      <h1 className="text-center p-6 text-5xl font-medium">Login</h1>
+      <h1 className="text-center p-6 text-5xl font-medium">Customer Login</h1>
       <form
         className=" w-2/3 my-6 mx-auto flex flex-col"
         onSubmit={handleSubmit}
@@ -69,7 +69,7 @@ function LoginForm({ setUser }) {
         </h2>
 
         <Link
-          to="/signup"
+          to="/customer_signup"
           className="text-center text-l text-blue-500 underline hover:text-teal-200"
         >
           Sign Up here
