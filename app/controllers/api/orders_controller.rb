@@ -4,13 +4,17 @@ class Api::OrdersController < ApplicationController
 
     
     def index
-        render json: Order.all
+        # render json: Order.all
+        orders = Order.where(customer_id: @customer.id)
+        render json: orders
     end
 
     def create
         # binding.pry
         order = Order.create!(product_id: params[:product_id], customer_id: @customer.id)
     end
+
+    private
 
     def authorize
         @customer = Customer.find_by(id: session[:customer_id])

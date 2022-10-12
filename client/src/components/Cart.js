@@ -1,10 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function Cart() {
   const navigate = useNavigate()
 
   const [cart, setCart] = useState([])
+
+  useEffect(() => {
+    fetch("/api/orders")
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setCart(data)})
+  }, [])
 
   if (cart.length <= 30) return (
     <>
