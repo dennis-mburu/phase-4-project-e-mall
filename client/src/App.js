@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import CustomerLoginForm from "./components/CustomerLoginForm";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
+import CustomerSigupForm from "./components/CustomerSigupForm";
 
 
 
@@ -31,6 +32,8 @@ function App() {
         <Route path='/customer_login' element={<CustomerLoginForm setUser={setUser}/>}/>
         <Route path='/view_product/:id' element={<Product />}/>
         <Route path='/cart' element={<Cart />}/>
+        <Route path='/customer_signup' element={<CustomerSigupForm setUser={setUser}/>}/>
+
         
       </Routes>
 

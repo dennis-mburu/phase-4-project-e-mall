@@ -36,7 +36,7 @@ function LoginForm({ setUser }) {
 
   return (
     <div className="form-container">
-      <h1 className="text-center p-6 text-5xl font-medium">Customer Login</h1>
+      <h1 className="text-center p-6 text-4xl font-medium">CUSTOMER LOGIN</h1>
       <form
         className=" w-2/3 my-6 mx-auto flex flex-col"
         onSubmit={handleSubmit}
@@ -45,6 +45,7 @@ function LoginForm({ setUser }) {
           UserName:
         </label>
         <input
+        required
           className="bg-[#0a0a23] mt-2 h-8"
           type="text"
           name="username"
