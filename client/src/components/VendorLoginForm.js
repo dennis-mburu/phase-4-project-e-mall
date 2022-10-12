@@ -3,7 +3,7 @@ import "./LoginForm.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function CustomerLoginForm({ setUser }) {
+function VendorLoginForm({ setUser }) {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +11,7 @@ function CustomerLoginForm({ setUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/api/customer_login", {
+    fetch("/api/vendor_login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ function CustomerLoginForm({ setUser }) {
       if (r.ok) {
         r.json().then((user) => {
           setUser(user);
-          navigate("/products");
+          navigate("/manage_products");
         });
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -36,7 +36,7 @@ function CustomerLoginForm({ setUser }) {
 
   return (
     <div className="form-container">
-      <h1 className="text-center p-6 text-4xl font-medium">CUSTOMER LOGIN</h1>
+      <h1 className="text-center p-6 text-4xl font-medium">VENDOR LOGIN</h1>
       <form
         className=" w-2/3 my-6 mx-auto flex flex-col"
         onSubmit={handleSubmit}
@@ -70,7 +70,7 @@ function CustomerLoginForm({ setUser }) {
         </h2>
 
         <Link
-          to="/customer_signup"
+          to="/vendor_signup"
           className="text-center text-l text-blue-500 underline hover:text-teal-200"
         >
           Sign Up here
@@ -102,4 +102,4 @@ function CustomerLoginForm({ setUser }) {
   );
 }
 
-export default CustomerLoginForm;
+export default VendorLoginForm;

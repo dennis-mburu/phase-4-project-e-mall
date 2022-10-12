@@ -18,6 +18,19 @@ function Navbar({ user, setUser }) {
       }
     });
   }
+
+  function handleVendorLogOut() {
+    fetch("/api/vendor_logout", {
+      method: "DELETE",
+    }).then((r) => {
+      if (r.ok) {
+        setUser(null);
+        navigate("/");
+      }
+    });
+  }
+
+
   return (
     <nav className="flex items-center justify-between flex-wrap bg-black p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -37,7 +50,7 @@ function Navbar({ user, setUser }) {
       </div>
 
       <div className="flex items-center text-lg">
-        {user ? (
+        {user&&user.user_type==="customer" ? (
           <Link
             to="/cart"
             className=" text-teal-200 hover:text-white mr-5 text-"
@@ -50,22 +63,37 @@ function Navbar({ user, setUser }) {
           Products
         </Link>
 
-        {user ? (
+        {user&&user.user_type==="customer" ? (
           <button
             className="text-teal-200 hover:text-white mr-5"
             onClick={handleCustomerLogOut}
           >
-            logout
+            customer logout
             <FaPowerOff className="inline ml-1 "/>
-
           </button>
-          
         ) : (
           <Link to="/customer_login" className="text-teal-200 hover:text-white mr-5">
             <FaUserCircle className="inline mr-1 mt-0" />
             Customer Login
           </Link>
         )}
+
+                {user&&user.user_type==="vendor" ? (
+          <button
+            className="text-teal-200 hover:text-white mr-5"
+            onClick={handleVendorLogOut}
+          >
+            vendor logout
+            <FaPowerOff className="inline ml-1 "/>
+          </button>
+        ) : (
+          <Link to="/vendor_login" className="text-teal-200 hover:text-white mr-5">
+            <FaUserCircle className="inline mr-1 mt-0" />
+            Vendor Login
+          </Link>
+        )}
+
+
       </div>
     </nav>
   );

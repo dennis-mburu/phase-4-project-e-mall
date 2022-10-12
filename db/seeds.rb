@@ -13,9 +13,9 @@ puts "Seeding..."
 # vendor1 = Vendor.create(username: "", phone: , email: "", avatar: Faker::Avatar.image, store_address: "", bio: Faker::Hacker.say_something_smart, password: "" ) 
 puts "Seeding Vendors" 
 
-vendor1 = Vendor.create(username: "deno", phone: 254707724571, email: "deno@gmail.com", avatar: Faker::Avatar.image, store_address: "Nairobi Moi Avenue City Gate Mall First Floor Shop Number U12", bio: Faker::Hacker.say_something_smart, password: "deno" )
-vendor2 = Vendor.create(username: "mburu", phone: 254701003914, email: "mburu@gmail.com", avatar: Faker::Avatar.image, store_address: "Nairobi CBD tearoom, along taveta road ", bio: Faker::Hacker.say_something_smart, password: "mburu" ) 
-vendor3 = Vendor.create(username: "mwaura", phone: 254113617655 , email: "mwaura@gmail.com", avatar: Faker::Avatar.image, store_address: "kenya cinema Kenyatta avenue 4th floor shopB5", bio: Faker::Hacker.say_something_smart, password: "mwaura" ) 
+vendor1 = Vendor.create(username: "deno", user_type: "vendor", phone: 254707724571, email: "deno@gmail.com", avatar: Faker::Avatar.image, store_address: "Nairobi Moi Avenue City Gate Mall First Floor Shop Number U12", bio: Faker::Hacker.say_something_smart, password: "deno" )
+vendor2 = Vendor.create(username: "mburu", user_type: "vendor", phone: 254701003914, email: "mburu@gmail.com", avatar: Faker::Avatar.image, store_address: "Nairobi CBD tearoom, along taveta road ", bio: Faker::Hacker.say_something_smart, password: "mburu" ) 
+vendor3 = Vendor.create(username: "mwaura", user_type: "vendor", phone: 254113617655 , email: "mwaura@gmail.com", avatar: Faker::Avatar.image, store_address: "kenya cinema Kenyatta avenue 4th floor shopB5", bio: Faker::Hacker.say_something_smart, password: "mwaura" ) 
 
 puts "Done Seeding Vendors"
 
@@ -23,9 +23,9 @@ puts "Seeding Customers"
 
 # customer1 = Customer.create(username: "", phone: , email: "", avatar:Faker::Avatar.image, password: "" )
 
-customer1 = Customer.create(username: "diana", phone: 2547334455 , email: "diana@gmail.com", avatar:Faker::Avatar.image, password: "diana" )
-customer2 = Customer.create(username: "mso", phone: 2547889900, email: "mso@gmail.com", avatar:Faker::Avatar.image, password: "mso" )
-customer3 = Customer.create(username: "caro", phone: 2547223344, email: "caro@gmail.com", avatar:Faker::Avatar.image, password: "caro" )
+customer1 = Customer.create(username: "diana", user_type: "customer", phone: 2547334455 , email: "diana@gmail.com", avatar:Faker::Avatar.image, password: "diana" )
+customer2 = Customer.create(username: "mso", user_type: "customer", phone: 2547889900, email: "mso@gmail.com", avatar:Faker::Avatar.image, password: "mso" )
+customer3 = Customer.create(username: "caro", user_type: "customer", phone: 2547223344, email: "caro@gmail.com", avatar:Faker::Avatar.image, password: "caro" )
 
 puts "Done seeding customers"
 

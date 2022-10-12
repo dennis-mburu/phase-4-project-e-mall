@@ -8,6 +8,9 @@ import CustomerLoginForm from "./components/CustomerLoginForm";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
 import CustomerSigupForm from "./components/CustomerSigupForm";
+import VendorLoginForm from "./components/VendorLoginForm";
+import VendorSignupForm from "./components/VendorSignUpForm";
+
 
 
 
@@ -22,7 +25,7 @@ function App() {
     })
   }, [])
 
-  
+  // console.log(user)
   return (
     <><div className="min-h-[93vh] bg-my-grey-bg text-white">
 
@@ -34,7 +37,9 @@ function App() {
         <Route path='/cart' element={<Cart />}/>
         <Route path='/customer_signup' element={<CustomerSigupForm setUser={setUser}/>}/>
 
-        
+        <Route path='/vendor_login' element={<VendorLoginForm setUser={setUser}/>}/>
+        <Route path='/vendor_signup' element={<VendorSignupForm setUser={setUser}/>}/>
+
       </Routes>
 
     </div>
