@@ -1,6 +1,7 @@
 class Api::OrdersController < ApplicationController
     before_action :authorize
     rescue_from ActiveRecord::RecordInvalid, with: :render_unproccessable_entity
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
     
     def index
@@ -12,6 +13,12 @@ class Api::OrdersController < ApplicationController
     def create
         # binding.pry
         order = Order.create!(product_id: params[:product_id], customer_id: @customer.id)
+    end
+
+    def destroy
+        order = Order.find(params[:id])
+        order.destroy
+        render json: order
     end
 
     private
@@ -27,6 +34,10 @@ class Api::OrdersController < ApplicationController
 
     def render_unproccessable_entity(invalid)
         render  json: {errors: invalid.record.errors.full_messages}, status: 422
+     end
+
+     def render_not_found_response
+        render json: {error: "Record Not Found"}
      end
 
 end

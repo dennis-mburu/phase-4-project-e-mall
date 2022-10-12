@@ -50,12 +50,14 @@ function Product() {
             src={product.image_url}
           ></img>
           <div className="flex justify-center">
-            <button
+            {/* <button
               className=" bg-teal-200 hover:bg-blue-600 mt-6  mx-auto text-black font-medium py-2 px-4 rounded-full"
               onClick={handleOrderClick}
             >
               Add to Cart
-            </button>
+            </button> */}
+              <button className='bg-green-900 w-2/3 hover:bg-green-500 mt-5  py-2 px-4 rounded-md text-lg border border-white hover:border-transparent"'
+        onClick={handleOrderClick}>Add to Cart</button>
           </div>
           {errors.map((error) => {
             // return (

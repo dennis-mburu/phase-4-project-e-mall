@@ -14,7 +14,7 @@ function Products() {
   }, []);
   return (
     <>
-      <h1 className="text-center p-3 text-white text-xl">
+      <h1 className="text-center p-3 text-white text-xl font-bold">
         ALL AVAILABLE PRODUCTS
       </h1>
       <div className="flex flex-wrap gap-8 justify-evenly  p-4">
