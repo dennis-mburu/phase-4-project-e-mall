@@ -14,12 +14,12 @@ function Products() {
   }, []);
   return (
     <>
-      <h1 className="text-center p-3 bg-slate-700 text-white text-xl">
+      <h1 className="text-center p-3 text-white text-xl">
         ALL AVAILABLE PRODUCTS
       </h1>
       <div className="flex flex-wrap gap-8 justify-evenly  p-4">
         {products.map((product) => (
-          <div className="max-w-sm rounded overflow-hidden shadow-lg bg-slate-700">
+          <div className="max-w-sm rounded overflow-hidden shadow-lg bg-slate-800">
             <img
               className="w-full h-80 object-cover"
               src={product.image_url}
@@ -37,7 +37,10 @@ function Products() {
 
               </div>
               <div className="flex justify-center" >
-              <button className=" bg-teal-200 hover:bg-blue-600 mt-6  mx-auto text-black font-medium py-2 px-4 rounded-full" onClick={() => navigate(`/view_product/${product.id}`)}>
+              {/* <button className=" bg-teal-200 hover:bg-blue-600 mt-6  mx-auto text-black font-medium py-2 px-4 rounded-full" onClick={() => navigate(`/view_product/${product.id}`)}>
+                  Explore Product
+                </button> */}
+                <button className=" bg-transparent hover:bg-blue-500 mt-5  py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={() => navigate(`/view_product/${product.id}`)}>
                   Explore Product
                 </button>
               </div>
