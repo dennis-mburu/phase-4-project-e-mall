@@ -11,6 +11,7 @@ import CustomerSigupForm from "./components/CustomerSigupForm";
 import VendorLoginForm from "./components/VendorLoginForm";
 import VendorSignupForm from "./components/VendorSignUpForm";
 import ManageProducts from "./components/ManageProducts";
+import ProductEditForm from "./components/ProductEditForm";
 
 
 
@@ -37,7 +38,7 @@ function App() {
 
   // console.log(user)
   return (
-    <><div className="min-h-[93vh] bg-my-grey-bg text-white">
+    <><div className="min-h-[93vh] bg-flow-grey-bg text-white">
 
       <Navbar user={user} setUser={setUser}/>
       <Routes>
@@ -50,6 +51,7 @@ function App() {
         <Route path='/vendor_login' element={<VendorLoginForm setUser={setUser}/>}/>
         <Route path='/vendor_signup' element={<VendorSignupForm setUser={setUser}/>}/>
         <Route path='/manage_products' element={<ManageProducts />}/>
+        <Route path='/product_edit' element={<ProductEditForm />}/>
 
       </Routes>
 
