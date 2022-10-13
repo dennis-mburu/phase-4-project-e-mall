@@ -23,12 +23,12 @@ function CustomerLoginForm({ setUser }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          setUser(user);
           fetch("/api/vendor_logout", {
             method: "DELETE",
           });
-          navigate("/products");
+          setUser(user);
         });
+        navigate("/products");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

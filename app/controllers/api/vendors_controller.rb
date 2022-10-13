@@ -15,9 +15,13 @@ class Api::VendorsController < ApplicationController
     end
 
     def create
-        vendor = Vendor.create!(vendor_params)
-        session[:vendor_id] = vendor.id
-        render json: vendor, status: 201
+        if session[:customer_id]
+            render json: {errors: ["Please Log Out from Customer Account before creating a Vendor Account"]}, status: 401
+        else
+            vendor = Vendor.create!(vendor_params)
+            session[:vendor_id] = vendor.id
+            render json: vendor, status: 201
+        end
     end
 
     private

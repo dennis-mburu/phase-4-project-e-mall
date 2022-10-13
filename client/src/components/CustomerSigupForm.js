@@ -28,10 +28,10 @@ function CustomerSigupForm({ setUser }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          setUser(user);
           fetch("/api/vendor_logout", {
             method: "DELETE",
           });
+          setUser(user);
         });
         navigate("/products");
       } else {

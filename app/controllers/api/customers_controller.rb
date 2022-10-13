@@ -15,9 +15,14 @@ class Api::CustomersController < ApplicationController
     end
 
     def create
-        customer = Customer.create!(customer_params)
-        session[:customer_id] = customer.id
-        render json: customer, status: 201
+        if session[:vendor_id] 
+            render json: {errors: ["Please Log Out from Vendor Account before Creating a Customer Account"]}, status: 401
+        else
+            customer = Customer.create!(customer_params)
+            session[:customer_id] = customer.id
+            render json: customer, status: 201
+        end
+        
     end
 
     private

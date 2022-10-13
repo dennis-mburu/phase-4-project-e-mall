@@ -2,7 +2,9 @@ class Api::CustomerSessionsController < ApplicationController
     
     def create
         customer = Customer.find_by(username: params[:username])
-        if customer&.authenticate(params[:password])
+        if session[:vendor_id] 
+            render json: {errors: ["Please Log Out from Vendor Account before Logging in as Customer"]}, status: 401
+        elsif customer&.authenticate(params[:password])
             session[:customer_id] = customer.id
             render json: customer
         else
