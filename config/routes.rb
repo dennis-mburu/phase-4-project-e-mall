@@ -19,7 +19,8 @@ Rails.application.routes.draw do
     get "/vendor_auth", to: "vendors#show"
     post "/vendor_signup", to: "vendors#create"
 
-
+    # SPECIFIC VENDOR'S PRODUCTS
+    get 'vendor_products', to: "vendor_products#index"
 
   end
 
