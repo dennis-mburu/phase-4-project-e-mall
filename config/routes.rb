@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
     # SPECIFIC VENDOR'S PRODUCTS
     get 'vendor_products', to: "vendor_products#index"
+    get "vendor_products/:id", to: "vendor_products#show"
+    patch "vendor_products/:id", to: "vendor_products#update"
 
   end
 

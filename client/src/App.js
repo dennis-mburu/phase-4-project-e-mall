@@ -51,7 +51,7 @@ function App() {
         <Route path='/vendor_login' element={<VendorLoginForm setUser={setUser}/>}/>
         <Route path='/vendor_signup' element={<VendorSignupForm setUser={setUser}/>}/>
         <Route path='/manage_products' element={<ManageProducts />}/>
-        <Route path='/product_edit' element={<ProductEditForm />}/>
+        <Route path='/product_edit/:id' element={<ProductEditForm />}/>
 
       </Routes>
 

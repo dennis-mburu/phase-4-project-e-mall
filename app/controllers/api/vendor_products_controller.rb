@@ -9,6 +9,17 @@ class Api::VendorProductsController < ApplicationController
         render json: products
     end
 
+    def show
+        product = Product.find(params[:id])
+        render json: product
+    end
+
+    def update
+        product = Product.find(params[:id])
+        product.update!(product_params)
+        render json: product, status: 201
+    end
+
     private 
 
     def product_params
@@ -25,7 +36,7 @@ class Api::VendorProductsController < ApplicationController
     end
 
      def render_record_not_found
-        render json: {error: "Product not found"}, status: 404
+        render json: {error: ["Product not found"]}, status: 404
     end
 
 end

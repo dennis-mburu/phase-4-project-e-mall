@@ -191,7 +191,7 @@ function handleChange(e){
             </td>
             <td className="py-4 px-6 ">
             <button className=" bg-blue-800 text-white text-center hover:bg-blue-500 mt-5 ml-5  py-2 px-4 border border-red-400 hover:border-transparent rounded"
-            onClick={() => navigate('/product_edit')}>
+            onClick={() => navigate(`/product_edit/${product.id}`)}>
                   Edit Product
                 </button>
             </td>
