@@ -65,6 +65,16 @@ function CustomerLoginForm({ setUser }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {errors.map((error) => {
+          return (
+            <div
+              class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-3 text-center"
+              role="alert"
+            >
+              <span class="block sm:inline">{error}</span>
+            </div>
+          );
+        })}
         <button class="bg-blue-500 hover:bg-blue-700 mt-6 w-1/3 mx-auto text-white font-bold py-2 px-4 rounded">
           Login
         </button>
@@ -78,18 +88,6 @@ function CustomerLoginForm({ setUser }) {
         >
           Sign Up here
         </Link>
-        {errors.map((error) => {
-          // return <h1 key={error} className="text-red-500 text-center mt-3">{error}!</h1>
-          return (
-            <div
-              class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-3 text-center"
-              role="alert"
-            >
-              <span class="block sm:inline">{error}</span>
-
-            </div>
-          );
-        })}
       </form>
     </div>
   );

@@ -26,6 +26,11 @@ class Api::VendorProductsController < ApplicationController
         render json: product
     end
 
+    def create 
+        product = @vendor.products.create!(product_params)
+        render json: product
+    end
+
     private 
 
     def product_params

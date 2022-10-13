@@ -56,8 +56,8 @@ function ProductEditForm() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h1 className="text-center p-6 text-4xl font-medium">
-          Edit Product Details
+        <h1 className="text-center p-3 text-white text-2xl font-bold">
+          EDIT PRODUCT DETAILS
         </h1>
 
         <div className="flex flex-col w-1/2 gap-8 flex-wrap mx-auto edit-form">
@@ -122,17 +122,16 @@ function ProductEditForm() {
             Submit
           </button>
           {errors.map((error) => {
-          return (
-            <div
-              class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-3 text-center"
-              role="alert"
-            >
-              <span class="block sm:inline">{error}</span>
-            </div>
-          );
-        })}
+            return (
+              <div
+                class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-3 text-center"
+                role="alert"
+              >
+                <span class="block sm:inline">{error}</span>
+              </div>
+            );
+          })}
         </div>
-
       </form>
     </>
   );

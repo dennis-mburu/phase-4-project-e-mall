@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     get "vendor_products/:id", to: "vendor_products#show"
     patch "vendor_products/:id", to: "vendor_products#update"
     delete "vendor_products/:id", to: "vendor_products#destroy"
+    post 'vendor_products', to: "vendor_products#create"
+
 
   end
 

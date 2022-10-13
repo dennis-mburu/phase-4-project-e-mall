@@ -3,7 +3,7 @@ import "./LoginForm.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function CustomerSigupForm({setUser}) {
+function CustomerSigupForm({ setUser }) {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -23,17 +23,17 @@ function CustomerSigupForm({setUser}) {
         username,
         password,
         password_confirmation: passwordConfirmation,
-        user_type: 'customer'
+        user_type: "customer",
       }),
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-            setUser(user)
-            fetch("/api/vendor_logout", {
-                method: "DELETE",
-              });
+          setUser(user);
+          fetch("/api/vendor_logout", {
+            method: "DELETE",
+          });
         });
-        navigate('/products')
+        navigate("/products");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -50,7 +50,7 @@ function CustomerSigupForm({setUser}) {
           className=" w-2/3 my-6 mx-auto flex flex-col"
           onSubmit={handleSubmit}
         >
-          <label htmlFor="username" className="text-l"  >
+          <label htmlFor="username" className="text-l">
             UserName:
           </label>
           <input
@@ -61,19 +61,17 @@ function CustomerSigupForm({setUser}) {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <label htmlFor="password" className="mt-5 text-xl" >
+          <label htmlFor="password" className="mt-5 text-xl">
             Password:
           </label>
           <input
-          required
+            required
             className="bg-[#0a0a23] mt-2 h-8"
             type="password"
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-
-
 
           <label htmlFor="password_confirmation" className="mt-5 text-xl">
             Confirm Password:
@@ -86,7 +84,16 @@ function CustomerSigupForm({setUser}) {
             onChange={(e) => setPasswordConfirmation(e.target.value)}
           />
 
-
+          {errors.map((error) => {
+            return (
+              <div
+                class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-3 text-center"
+                role="alert"
+              >
+                <span class="block sm:inline">{error}</span>
+              </div>
+            );
+          })}
 
           <button class="bg-blue-500 hover:bg-blue-700 mt-6 w-1/3 mx-auto text-white font-bold py-2 px-4 rounded">
             Sign In
@@ -101,18 +108,6 @@ function CustomerSigupForm({setUser}) {
           >
             Log in here
           </Link>
-          {errors.map((error) => {
-            // return <h1 key={error} className="text-red-500 text-center mt-3">{error}!</h1>
-            return (
-              <div
-                class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-3 text-center"
-                role="alert"
-              >
-                <span class="block sm:inline">{error}</span>
-
-              </div>
-            );
-          })}
         </form>
       </div>
     </>
