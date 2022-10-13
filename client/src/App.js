@@ -10,6 +10,7 @@ import Cart from "./components/Cart";
 import CustomerSigupForm from "./components/CustomerSigupForm";
 import VendorLoginForm from "./components/VendorLoginForm";
 import VendorSignupForm from "./components/VendorSignUpForm";
+import ManageProducts from "./components/ManageProducts";
 
 
 
@@ -39,6 +40,7 @@ function App() {
 
         <Route path='/vendor_login' element={<VendorLoginForm setUser={setUser}/>}/>
         <Route path='/vendor_signup' element={<VendorSignupForm setUser={setUser}/>}/>
+        <Route path='/manage_products' element={<ManageProducts />}/>
 
       </Routes>
 

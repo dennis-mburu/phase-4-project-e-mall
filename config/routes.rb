@@ -7,11 +7,14 @@ Rails.application.routes.draw do
     resources :customers
     resources :vendors
 
-
+    # CUTOMER AUTH
     post "/customer_login", to: "customer_sessions#create"
     delete "/customer_logout", to: "customer_sessions#destroy"
     get "/customer_auth", to: "customers#show"
     post "/customer_signup", to: "customers#create"
+
+    # VENDOR AUTH
+    post "vendor_login", to: "vendor_sessions#create"
 
   end
 
