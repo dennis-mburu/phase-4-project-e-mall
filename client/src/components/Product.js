@@ -14,7 +14,6 @@ function Product() {
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
-        // console.log(data);
       });
   }, []);
 
@@ -34,13 +33,9 @@ function Product() {
       }
     });
   }
-  // console.log(errors);
 
   return (
     <>
-      <h1 className="text-center p-3  text-white text-3xl">
-        {product.title}: Ksh. {product.price}
-      </h1>
       <hr></hr>
       <div className="flex m-5 main-cont">
         <div className="w-2/5 mr-5 cont-left">
@@ -49,77 +44,86 @@ function Product() {
             alt="product"
             src={product.image_url}
           ></img>
-          <div className="flex justify-center">
-            {/* <button
-              className=" bg-teal-200 hover:bg-blue-600 mt-6  mx-auto text-black font-medium py-2 px-4 rounded-full"
-              onClick={handleOrderClick}
-            >
-              Add to Cart
-            </button> */}
-              <button className='bg-green-900 w-2/3 hover:bg-green-500 mt-5  py-2 px-4 rounded-md text-lg border border-white hover:border-transparent"'
-        onClick={handleOrderClick}>Add to Cart</button>
-          </div>
-          {errors.map((error) => {
-            // return (
-            //   <h1 key={error} className="text-red-500 text-center mt-3 text-xl">
-            //     {error}
-            //   </h1>
-            return (
-              <div
-                class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-3 text-center"
-                role="alert"
-              >
-                <span class="block sm:inline">{error}</span>
-              </div>
-            );
-            
-          })}
         </div>
         <div className="w-3/5 cont-right">
-          <h1 className="text-center p-3  text-white text-2xl">DESCRIPTION:</h1>
-          <p className="text-center text-neutral-400">{product.description}</p>
+          <div className="w-5/6 mx-auto border-solid border-2 border-slate-800  p-3 inner-cont">
+            <h1 className="text-center font-black  text-white text-2xl">
+              Product Details
+            </h1>
+            <hr></hr>
+            <p className="font-bold mt-2 text-xl">
+              Name:{" "}
+              <span className="text-lg font-light text-neutral-400 ml-3">
+                {product.title}
+              </span>
+            </p>
+            <p className="font-bold mt-2 text-xl">
+              Description:{" "}
+              <span className="text-lg font-light text-neutral-400 ml-3">
+                {product.description}
+              </span>
+            </p>
+            <p className="font-bold mt-2 text-xl">
+              Price:{" "}
+              <span className="text-lg font-black text-neutral-400 ml-3">
+                Ksh. {product.price}
+              </span>
+            </p>
+            <p className="font-bold mt-2 text-xl">
+              Stock Remaining:{" "}
+              <span className="text-lg font-light text-neutral-400 ml-3">
+                {product.stock}
+              </span>
+            </p>
 
-          <h1 className="text-center p-3  text-white text-2xl">
-            Stock Remaining:
-          </h1>
-          <p className="text-center text-neutral-400 text-xl">
-            {product.stock}
-          </p>
-
-          <h1 className="text-center p-3  text-white text-2xl">
-            Vendor contacts:
-          </h1>
-
-          <div className="w-7/12 mx-auto">
-            <p class="text-base">
-              <span className="font-medium">Name: </span>
-              <span className="float-right text-neutral-400">
+            <h1 className="text-center font-black mt-3 text-white text-2xl">
+              Vendor's Details
+            </h1>
+            <hr></hr>
+            <p className="font-bold mt-2 text-xl">
+              Name:{" "}
+              <span className="text-lg font-light text-neutral-400 ml-3">
                 {product.username}
               </span>
             </p>
-          </div>
-          <div className="w-7/12 mx-auto">
-            <p class="text-base">
-              <span className="font-medium">Phone: </span>
-              <span className="float-right text-neutral-400">
+            <p className="font-bold mt-2 text-xl">
+              Phone:{" "}
+              <span className="text-lg font-light text-neutral-400 ml-3">
                 +{product.phone}
               </span>
             </p>
-          </div>
-          <div className="w-7/12 mx-auto">
-            <p class="text-base">
-              <span className="font-medium">Email: </span>
-              <span className="float-right text-neutral-400">
+            <p className="font-bold mt-2 text-xl">
+              Email:{" "}
+              <span className="text-lg font-light text-neutral-400 ml-3">
                 {product.email}
               </span>
             </p>
+            <p className="font-bold mt-2 text-xl">
+              Store Address:{" "}
+              <span className="text-lg font-light text-neutral-400 ml-3">
+                {product.address}
+              </span>
+            </p>
+            <hr></hr>
+            {errors.map((error) => {
+              return (
+                <div
+                  class="bg-red-100 w-full mx-auto border border-red-400 text-red-700 px-4 py-3 rounded relative mt-5 text-center"
+                  role="alert"
+                >
+                  <span class="block sm:inline">{error}</span>
+                </div>
+              );
+            })}
+            <div className="flex justify-center">
+              <button
+                className='bg-green-900 w-full hover:bg-green-500 mt-8  py-2 px-4 rounded text-lg font-bold border border-white hover:border-transparent"'
+                onClick={handleOrderClick}
+              >
+                Add to Cart
+              </button>
+            </div>
           </div>
-          <h1 className="text-center p-3  text-white text-2xl">
-            Physical Store Address:
-          </h1>
-          <p className="text-center text-neutral-400 text-xl">
-            {product.address}
-          </p>
         </div>
       </div>
     </>

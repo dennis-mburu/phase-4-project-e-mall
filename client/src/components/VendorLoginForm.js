@@ -35,8 +35,6 @@ function VendorLoginForm({ setUser }) {
     });
   }
 
-  // console.log(errors);
-
   return (
     <div className="form-container">
       <h1 className="text-center p-6 text-4xl font-medium">VENDOR LOGIN</h1>

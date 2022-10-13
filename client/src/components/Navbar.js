@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaUserCircle , FaPowerOff} from "react-icons/fa";
+import { FaUserCircle, FaPowerOff } from "react-icons/fa";
 import { FaShoppingCart, FaCog } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
@@ -30,7 +30,6 @@ function Navbar({ user, setUser }) {
     });
   }
 
-
   return (
     <nav className="flex items-center justify-between flex-wrap bg-black p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
@@ -48,15 +47,17 @@ function Navbar({ user, setUser }) {
           <Link to="/">E-MALL</Link>
         </span>
 
-        <Link to="/products" className=" text-teal-200 hover:text-white ml-5">
+        <Link to="/" className=" text-teal-200 hover:text-white ml-5">
           All Products
         </Link>
       </div>
 
-      {user ? <h1 className=" text-teal-200 hover:text-white ">Hi {user.username}</h1>: null}
+      {user ? (
+        <h1 className=" text-teal-200 hover:text-white ">Hi {user.username}</h1>
+      ) : null}
 
       <div className="flex items-center text-lg">
-        {user&&user.user_type==="customer" ? (
+        {user && user.user_type === "customer" ? (
           <Link
             to="/cart"
             className=" text-teal-200 hover:text-white mr-5 text-"
@@ -65,7 +66,7 @@ function Navbar({ user, setUser }) {
           </Link>
         ) : null}
 
-               {user&&user.user_type==="vendor" ? (
+        {user && user.user_type === "vendor" ? (
           <Link
             to="/manage_products"
             className=" text-teal-200 hover:text-white mr-5 text-"
@@ -74,39 +75,41 @@ function Navbar({ user, setUser }) {
           </Link>
         ) : null}
 
-
-
-        {user&&user.user_type==="customer" ? (
+        {user && user.user_type === "customer" ? (
           <button
             className="text-teal-200 hover:text-white mr-5"
             onClick={handleCustomerLogOut}
           >
             customer logout
-            <FaPowerOff className="inline ml-1 "/>
+            <FaPowerOff className="inline ml-1 " />
           </button>
         ) : (
-          <Link to="/customer_login" className="text-teal-200 hover:text-white mr-5">
+          <Link
+            to="/customer_login"
+            className="text-teal-200 hover:text-white mr-5"
+          >
             <FaUserCircle className="inline mr-1 mt-0" />
             Customer Login
           </Link>
         )}
 
-                {user&&user.user_type==="vendor" ? (
+        {user && user.user_type === "vendor" ? (
           <button
             className="text-teal-200 hover:text-white mr-5"
             onClick={handleVendorLogOut}
           >
             vendor logout
-            <FaPowerOff className="inline ml-1 "/>
+            <FaPowerOff className="inline ml-1 " />
           </button>
         ) : (
-          <Link to="/vendor_login" className="text-teal-200 hover:text-white mr-5">
+          <Link
+            to="/vendor_login"
+            className="text-teal-200 hover:text-white mr-5"
+          >
             <FaUserCircle className="inline mr-1 mt-0" />
             Vendor Login
           </Link>
         )}
-
-
       </div>
     </nav>
   );

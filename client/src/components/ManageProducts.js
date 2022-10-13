@@ -54,7 +54,7 @@ function ManageProducts() {
     }).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
-          setProducts([...products, data])
+          setProducts([...products, data]);
           navigate("/manage_products");
         });
       } else {

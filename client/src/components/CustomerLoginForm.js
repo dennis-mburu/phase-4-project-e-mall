@@ -28,14 +28,12 @@ function CustomerLoginForm({ setUser }) {
           });
           setUser(user);
         });
-        navigate("/products");
+        navigate("/");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
     });
   }
-
-  // console.log(errors);
 
   return (
     <div className="form-container">

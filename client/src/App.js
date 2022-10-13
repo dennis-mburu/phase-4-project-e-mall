@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route  } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Products from "./components/Products";
 import Footer from "./components/Footer";
@@ -13,52 +13,56 @@ import VendorSignupForm from "./components/VendorSignUpForm";
 import ManageProducts from "./components/ManageProducts";
 import ProductEditForm from "./components/ProductEditForm";
 
-
-
-
 function App() {
-
-  const [user, setUser] = useState(null)
-
-  useEffect(() => {
-    fetch("/api/customer_auth").then(r =>{
-      if (r.ok) {
-        r.json().then(user => setUser(user))
-      }
-    })
-  }, [])
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("/api/vendor_auth").then(r =>{
+    fetch("/api/customer_auth").then((r) => {
       if (r.ok) {
-        r.json().then(user => setUser(user))
+        r.json().then((user) => setUser(user));
       }
-    })
-  }, [])
+    });
+  }, []);
 
-  // console.log(user)
+  useEffect(() => {
+    fetch("/api/vendor_auth").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
   return (
-    <><div className="min-h-[93vh] bg-flow-grey-bg text-white">
+    <>
+      <div className="min-h-[93vh] bg-flow-grey-bg text-white">
+        <Navbar user={user} setUser={setUser} />
+        <Routes>
+          <Route path="/" element={<Products />} />
+          <Route
+            path="/customer_login"
+            element={<CustomerLoginForm setUser={setUser} />}
+          />
+          <Route path="/view_product/:id" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/customer_signup"
+            element={<CustomerSigupForm setUser={setUser} />}
+          />
 
-      <Navbar user={user} setUser={setUser}/>
-      <Routes>
-        <Route path='/products' element={<Products />}/>
-        <Route path='/customer_login' element={<CustomerLoginForm setUser={setUser}/>}/>
-        <Route path='/view_product/:id' element={<Product />}/>
-        <Route path='/cart' element={<Cart />}/>
-        <Route path='/customer_signup' element={<CustomerSigupForm setUser={setUser}/>}/>
-
-        <Route path='/vendor_login' element={<VendorLoginForm setUser={setUser}/>}/>
-        <Route path='/vendor_signup' element={<VendorSignupForm setUser={setUser}/>}/>
-        <Route path='/manage_products' element={<ManageProducts />}/>
-        <Route path='/product_edit/:id' element={<ProductEditForm />}/>
-
-      </Routes>
-
-    </div>
-    <Footer/>
+          <Route
+            path="/vendor_login"
+            element={<VendorLoginForm setUser={setUser} />}
+          />
+          <Route
+            path="/vendor_signup"
+            element={<VendorSignupForm setUser={setUser} />}
+          />
+          <Route path="/manage_products" element={<ManageProducts />} />
+          <Route path="/product_edit/:id" element={<ProductEditForm />} />
+        </Routes>
+      </div>
+      <Footer />
     </>
-    
   );
 }
 

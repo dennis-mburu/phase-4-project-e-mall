@@ -2,22 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Products() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("/api/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
-        // console.log(data);
       });
   }, []);
   return (
     <>
-      <h1 className="text-center p-3 text-white text-xl font-bold">
+      <h1 className="text-center p-3 text-white text-xl font-black">
         ALL AVAILABLE PRODUCTS
       </h1>
-      <div className="flex flex-wrap gap-8 justify-evenly  p-4">
+      <div className="flex flex-wrap gap-8 justify-evenly  p-4 font-bold">
         {products.map((product) => (
           <div className="max-w-sm rounded-xl overflow-hidden shadow-2xl bg-[#1F2937]">
             <img
@@ -26,25 +25,18 @@ function Products() {
               alt="Product"
             ></img>
             <div className="px-6 py-4">
-              <div className="font-medium text-xl mb-2 text-center">
-                {product.title}
-              </div>
+              <div className=" text-xl mb-2 text-center">{product.title}</div>
               <div className="w-9/12 mx-auto">
-                <p className="text-base">
-                  <span className="font-medium">Price: </span>
-                  <span className="float-right">Ksh. {product.price}</span>
-                </p>
-
+                <p className="text-center ">Ksh. {product.price}</p>
               </div>
-              <div className="flex justify-center" >
-              {/* <button className=" bg-teal-200 hover:bg-blue-600 mt-6  mx-auto text-black font-medium py-2 px-4 rounded-full" onClick={() => navigate(`/view_product/${product.id}`)}>
-                  Explore Product
-                </button> */}
-                <button className=" bg-transparent hover:bg-blue-500 mt-5  py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={() => navigate(`/view_product/${product.id}`)}>
+              <div className="flex justify-center">
+                <button
+                  className=" bg-purple-900 hover:bg-purple-600 mt-5  py-2 px-4 border border-purple-300 hover:border-transparent rounded"
+                  onClick={() => navigate(`/view_product/${product.id}`)}
+                >
                   Explore Product
                 </button>
               </div>
-
             </div>
           </div>
         ))}

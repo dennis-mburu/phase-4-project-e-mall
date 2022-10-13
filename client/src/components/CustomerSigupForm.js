@@ -33,7 +33,7 @@ function CustomerSigupForm({ setUser }) {
           });
           setUser(user);
         });
-        navigate("/products");
+        navigate("/");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -96,7 +96,7 @@ function CustomerSigupForm({ setUser }) {
           })}
 
           <button class="bg-blue-500 hover:bg-blue-700 mt-6 w-1/3 mx-auto text-white font-bold py-2 px-4 rounded">
-            Sign In
+            Sign Up
           </button>
           <h2 className="text-center mt-6 py-6 text-xl ">
             Already Registered?
