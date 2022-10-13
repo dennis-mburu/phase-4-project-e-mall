@@ -24,6 +24,9 @@ function VendorLoginForm({ setUser }) {
       if (r.ok) {
         r.json().then((user) => {
           setUser(user);
+          fetch("/api/customer_logout", {
+            method: "DELETE",
+          });
           navigate("/manage_products");
         });
       } else {

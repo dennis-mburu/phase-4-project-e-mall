@@ -18,8 +18,17 @@ import ManageProducts from "./components/ManageProducts";
 function App() {
 
   const [user, setUser] = useState(null)
+
   useEffect(() => {
     fetch("/api/customer_auth").then(r =>{
+      if (r.ok) {
+        r.json().then(user => setUser(user))
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    fetch("/api/vendor_auth").then(r =>{
       if (r.ok) {
         r.json().then(user => setUser(user))
       }

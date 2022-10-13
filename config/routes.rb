@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
     # VENDOR AUTH
     post "vendor_login", to: "vendor_sessions#create"
+    delete "vendor_logout", to: "vendor_sessions#destroy"
+    get "/vendor_auth", to: "vendors#show"
+
 
   end
 
