@@ -23,10 +23,16 @@ function CustomerSigupForm({setUser}) {
         username,
         password,
         password_confirmation: passwordConfirmation,
+        user_type: 'customer'
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+            setUser(user)
+            fetch("/api/vendor_logout", {
+                method: "DELETE",
+              });
+        });
         navigate('/products')
       } else {
         r.json().then((err) => setErrors(err.errors));

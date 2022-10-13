@@ -23,10 +23,16 @@ function VendorSignupForm({setUser}) {
         username,
         password,
         password_confirmation: passwordConfirmation,
+        user_type: "vendor"
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+            fetch("/api/customer_logout", {
+                method: "DELETE",
+              });
+            setUser(user)
+        });
         navigate('/manage_products')
       } else {
         r.json().then((err) => setErrors(err.errors));

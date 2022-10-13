@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     post "vendor_login", to: "vendor_sessions#create"
     delete "vendor_logout", to: "vendor_sessions#destroy"
     get "/vendor_auth", to: "vendors#show"
+    post "/vendor_signup", to: "vendors#create"
+
 
 
   end

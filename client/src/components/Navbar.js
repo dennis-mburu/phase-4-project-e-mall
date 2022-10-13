@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaUserCircle , FaPowerOff} from "react-icons/fa";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaCog } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
 
@@ -47,7 +47,13 @@ function Navbar({ user, setUser }) {
         <span className="font-semibold text-xl tracking-tight text-teal-200 hover:text-white hover:cursor-pointer mr-5">
           <Link to="/">E-MALL</Link>
         </span>
+
+        <Link to="/products" className=" text-teal-200 hover:text-white ml-5">
+          All Products
+        </Link>
       </div>
+
+      {user ? <h1 className=" text-teal-200 hover:text-white ">Hi {user.username}</h1>: null}
 
       <div className="flex items-center text-lg">
         {user&&user.user_type==="customer" ? (
@@ -59,9 +65,16 @@ function Navbar({ user, setUser }) {
           </Link>
         ) : null}
 
-        <Link to="/products" className=" text-teal-200 hover:text-white mr-5">
-          Products
-        </Link>
+               {user&&user.user_type==="vendor" ? (
+          <Link
+            to="/manage_products"
+            className=" text-teal-200 hover:text-white mr-5 text-"
+          >
+            <FaCog />
+          </Link>
+        ) : null}
+
+
 
         {user&&user.user_type==="customer" ? (
           <button

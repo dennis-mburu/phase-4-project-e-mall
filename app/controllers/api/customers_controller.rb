@@ -23,7 +23,7 @@ class Api::CustomersController < ApplicationController
     private
 
     def customer_params
-        params.permit(:username, :password, :password_confirmation)
+        params.permit(:username, :password, :password_confirmation, :user_type)
     end
 
     def render_unprocessible_entity(invalid)
