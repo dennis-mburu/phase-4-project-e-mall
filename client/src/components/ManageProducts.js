@@ -57,8 +57,16 @@ function handleChange(e){
       console.log(products)
   }, [])
 
-  function handleDeleteProduct(){
-
+  function handleDeleteProduct(id){
+    fetch(`/api/vendor_products/${id}`, {
+      method: "DELETE"
+    })
+    .then(res => res.json())
+    .then(data => {
+      const updatedProducts = products.filter(product => product.id !== data.id)
+      setProducts(updatedProducts)
+      console.log(data)
+    })
   }
 
   return (
@@ -168,6 +176,9 @@ function handleChange(e){
                     Product Price
                 </th>
                 <th scope="col" className="py-3 px-6">
+                    Stock
+                </th>
+                <th scope="col" className="py-3 px-6">
                     Edit Product
                 </th>
                 <th scope="col" className="py-3 px-6">
@@ -188,6 +199,9 @@ function handleChange(e){
             </td>
             <td className="py-4 px-6 ">
             {product.price}
+            </td>
+            <td className="py-4 px-6 ">
+            {product.stock}
             </td>
             <td className="py-4 px-6 ">
             <button className=" bg-blue-800 text-white text-center hover:bg-blue-500 mt-5 ml-5  py-2 px-4 border border-red-400 hover:border-transparent rounded"

@@ -121,8 +121,7 @@ function ProductEditForm() {
           >
             Submit
           </button>
-        </div>
-        {errors.map((error) => {
+          {errors.map((error) => {
           return (
             <div
               class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-3 text-center"
@@ -132,6 +131,8 @@ function ProductEditForm() {
             </div>
           );
         })}
+        </div>
+
       </form>
     </>
   );

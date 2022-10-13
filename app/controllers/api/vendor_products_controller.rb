@@ -20,6 +20,12 @@ class Api::VendorProductsController < ApplicationController
         render json: product, status: 201
     end
 
+    def destroy
+        product = Product.find(params[:id])
+        product.destroy
+        render json: product
+    end
+
     private 
 
     def product_params
