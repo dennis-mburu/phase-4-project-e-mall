@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_12_174136) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_14_054918) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_174136) do
 
   create_table "customers", force: :cascade do |t|
     t.string "username"
-    t.integer "phone"
+    t.string "phone"
     t.string "email"
     t.string "avatar"
     t.string "password_digest"
@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_174136) do
 
   create_table "vendors", force: :cascade do |t|
     t.string "username"
-    t.integer "phone"
+    t.string "phone"
     t.string "email"
     t.string "avatar"
     t.string "store_address"
