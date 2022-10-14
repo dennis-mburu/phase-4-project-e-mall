@@ -2,10 +2,10 @@ Rails.application.routes.draw do
  
   namespace :api do
 
-    resources :orders
-    resources :products
-    resources :customers
-    resources :vendors
+    resources :orders, only: [:index, :create, :destroy]
+    resources :products, only: [:index, :show]
+    resources :customers, only: [:index, :show, :create]
+    resources :vendors, only: [:index, :show, :create]
 
     # CUTOMER AUTH
     post "/customer_login", to: "customer_sessions#create"
