@@ -26,7 +26,6 @@ function Product() {
       body: JSON.stringify({ product_id: id }),
     }).then((r) => {
       if (r.ok) {
-        alert("Product Added To Cart");
         navigate("/cart");
       } else {
         r.json().then((err) => setErrors(err.errors));
