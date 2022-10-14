@@ -37,7 +37,7 @@ function Cart() {
           <h1 className="text-2xl">Your Cart is Currently Empty</h1>
           <button
             className='bg-transparent hover:bg-blue-500 mt-5  py-2 px-4 border border-blue-500 hover:border-transparent rounded"'
-            onClick={() => navigate("/products")}
+            onClick={() => navigate("/")}
           >
             Start Shopping
           </button>
