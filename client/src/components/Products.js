@@ -18,7 +18,7 @@ function Products() {
       </h1>
       <div className="flex flex-wrap gap-8 justify-evenly  p-4 font-bold">
         {products.map((product) => (
-          <div className="max-w-sm rounded-xl overflow-hidden shadow-2xl bg-[#1F2937]">
+          <div className="max-w-sm rounded-xl overflow-hidden shadow-2xl bg-[#1F2937]" key={product.id}>
             <img
               className="w-full h-80 object-cover"
               src={product.image_url}

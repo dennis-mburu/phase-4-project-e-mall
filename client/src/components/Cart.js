@@ -10,7 +10,6 @@ function Cart() {
     fetch("/api/orders")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCart(data);
       });
   }, []);
@@ -23,7 +22,6 @@ function Cart() {
       .then((data) => {
         const updatedCart = cart.filter((order) => order.id !== data.id);
         setCart(updatedCart);
-        console.log(data);
       });
   }
 

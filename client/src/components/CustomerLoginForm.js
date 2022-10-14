@@ -23,9 +23,6 @@ function CustomerLoginForm({ setUser }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          fetch("/api/vendor_logout", {
-            method: "DELETE",
-          });
           setUser(user);
         });
         navigate("/");
@@ -66,14 +63,14 @@ function CustomerLoginForm({ setUser }) {
         {errors.map((error) => {
           return (
             <div
-              class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-3 text-center"
+              className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-3 text-center"
               role="alert"
             >
-              <span class="block sm:inline">{error}</span>
+              <span className="block sm:inline">{error}</span>
             </div>
           );
         })}
-        <button class="bg-blue-500 hover:bg-blue-700 mt-6 w-1/3 mx-auto text-white font-bold py-2 px-4 rounded">
+        <button className="bg-blue-500 hover:bg-blue-700 mt-6 w-1/3 mx-auto text-white font-bold py-2 px-4 rounded">
           Login
         </button>
         <h2 className="text-center mt-6 py-6 text-xl ">

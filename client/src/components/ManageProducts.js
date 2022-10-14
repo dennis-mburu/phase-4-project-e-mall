@@ -194,17 +194,17 @@ function ManageProducts() {
           {errors.map((error) => {
             return (
               <div
-                class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-3 text-center"
+                className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-3 text-center"
                 role="alert"
               >
-                <span class="block sm:inline">{error}</span>
+                <span className="block sm:inline">{error}</span>
               </div>
             );
           })}
 
           <button
             type="submit"
-            class="bg-blue-500 hover:bg-blue-700 my-6 w-2/3 mx-auto text-white font-bold py-2 px-4 rounded"
+            className="bg-blue-500 hover:bg-blue-700 my-6 w-2/3 mx-auto text-white font-bold py-2 px-4 rounded"
           >
             Submit
           </button>
