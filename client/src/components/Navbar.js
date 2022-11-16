@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaUserCircle, FaPowerOff } from "react-icons/fa";
 import { FaShoppingCart, FaCog } from "react-icons/fa";
 
+import Badge from "@mui/material/Badge";
+
 import { useNavigate } from "react-router-dom";
 
-function Navbar({ user, setUser }) {
+function Navbar({ user, setUser, items, setItems }) {
   const navigate = useNavigate();
 
   function handleCustomerLogOut() {
@@ -14,6 +16,7 @@ function Navbar({ user, setUser }) {
     }).then((r) => {
       if (r.ok) {
         setUser(null);
+        setItems(0);
         navigate("/");
       }
     });
@@ -62,7 +65,9 @@ function Navbar({ user, setUser }) {
             to="/cart"
             className=" text-teal-200 hover:text-white mr-5 text-"
           >
-            <FaShoppingCart />
+            <Badge badgeContent={items} color="secondary" className="text-2xl">
+              <FaShoppingCart />
+            </Badge>
           </Link>
         ) : null}
 

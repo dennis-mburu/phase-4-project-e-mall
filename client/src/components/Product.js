@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./product.css";
 import { useNavigate } from "react-router-dom";
 
-function Product() {
+function Product({ items, setItems }) {
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
   const params = useParams();
@@ -26,6 +26,7 @@ function Product() {
       body: JSON.stringify({ product_id: id }),
     }).then((r) => {
       if (r.ok) {
+        setItems(items + 1);
         navigate("/cart");
       } else {
         r.json().then((err) => setErrors(err.errors));

@@ -15,6 +15,15 @@ import ProductEditForm from "./components/ProductEditForm";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [items, setItems] = useState(0);
+
+  useEffect(() => {
+    fetch("/api/orders")
+      .then((res) => res.json())
+      .then((data) => {
+        setItems(data.length);
+      });
+  }, []);
 
   useEffect(() => {
     fetch("/api/customer_auth").then((r) => {
@@ -35,15 +44,21 @@ function App() {
   return (
     <>
       <div className="min-h-[93vh] bg-flow-grey-bg text-white">
-        <Navbar user={user} setUser={setUser} />
+        <Navbar user={user} setUser={setUser} items={items} setItems={setItems}/>
         <Routes>
           <Route path="/" element={<Products />} />
           <Route
             path="/customer_login"
             element={<CustomerLoginForm setUser={setUser} />}
           />
-          <Route path="/view_product/:id" element={<Product />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/view_product/:id"
+            element={<Product items={items} setItems={setItems} />}
+          />
+          <Route
+            path="/cart"
+            element={<Cart items={items} setItems={setItems} />}
+          />
           <Route
             path="/customer_signup"
             element={<CustomerSigupForm setUser={setUser} />}

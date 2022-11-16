@@ -37,7 +37,7 @@ class Api::OrdersController < ApplicationController
      end
 
      def render_not_found_response
-        render json: {error: "Record Not Found"}
+        render json: {errors: "Record Not Found"}
      end
 
 end
